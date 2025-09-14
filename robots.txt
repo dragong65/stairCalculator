@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://stair-calculator.com/sitemap.xml
-
-# 楼梯计算器 - 专业楼梯设计工具
-# 欢迎搜索引擎爬虫访问我们的网站

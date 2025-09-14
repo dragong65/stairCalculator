@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+    <!-- 标题 -->
+    <text x="200" y="30" text-anchor="middle" fill="#333" font-size="14" font-weight="bold">踏板厚度与Flush模式对比</text>
+    
+    <!-- Non-Flush模式 -->
+    <g transform="translate(50,80)">
+        <!-- 踏板 -->
+        <rect x="0" y="0" width="120" height="15" fill="#2196F3"/>
+        <rect x="30" y="45" width="120" height="15" fill="#2196F3"/>
+        <rect x="60" y="90" width="120" height="15" fill="#2196F3"/>
+        
+        <!-- 厚度标注 -->
+        <line x1="-10" y1="0" x2="-10" y2="15" stroke="#666" stroke-width="1"/>
+        <line x1="-15" y1="0" x2="-5" y2="0" stroke="#666" stroke-width="1"/>
+        <line x1="-15" y1="15" x2="-5" y2="15" stroke="#666" stroke-width="1"/>
+        <text x="-20" y="8" text-anchor="end" fill="#666" font-size="10">厚度</text>
+        
+        <!-- 说明文字 -->
+        <text x="60" y="130" text-anchor="middle" fill="#333" font-size="12">Non-Flush模式</text>
+    </g>
+    
+    <!-- Flush模式 -->
+    <g transform="translate(230,80)">
+        <!-- 踏板 -->
+        <path d="M0,0 L120,0 L120,15 L30,15 L30,45 L150,45 L150,60 L60,60 L60,90 L180,90 L180,105 L60,105" 
+              fill="#2196F3"/>
+        
+        <!-- 厚度标注 -->
+        <line x1="-10" y1="0" x2="-10" y2="15" stroke="#666" stroke-width="1"/>
+        <line x1="-15" y1="0" x2="-5" y2="0" stroke="#666" stroke-width="1"/>
+        <line x1="-15" y1="15" x2="-5" y2="15" stroke="#666" stroke-width="1"/>
+        <text x="-20" y="8" text-anchor="end" fill="#666" font-size="10">厚度</text>
+        
+        <!-- 说明文字 -->
+        <text x="90" y="130" text-anchor="middle" fill="#333" font-size="12">Flush模式</text>
+    </g>
+    
+    <!-- 说明文字 -->
+    <text x="50" y="250" fill="#666" font-size="12">Non-Flush: 踏板之间有间隙</text>
+    <text x="50" y="270" fill="#666" font-size="12">Flush: 踏板无缝连接形成连续表面</text>
+</svg>

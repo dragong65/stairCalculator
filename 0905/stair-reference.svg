@@ -1,0 +1,79 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="400" height="300" fill="#f8f9fa"/>
+  
+  <!-- 楼梯主体 -->
+  <g transform="translate(50, 50)">
+    <!-- 楼梯台阶 -->
+    <path d="M50 200 L50 180 L80 180 L80 160 L110 160 L110 140 L140 140 L140 120 L170 120 L170 100 L200 100 L200 80 L230 80 L230 60 L260 60" 
+          stroke="#2196F3" stroke-width="2" fill="none"/>
+    
+    <!-- 填充台阶 -->
+    <rect x="50" y="180" width="30" height="20" fill="#81C784" opacity="0.7"/>
+    <rect x="80" y="160" width="30" height="20" fill="#81C784" opacity="0.7"/>
+    <rect x="110" y="140" width="30" height="20" fill="#81C784" opacity="0.7"/>
+    <rect x="140" y="120" width="30" height="20" fill="#81C784" opacity="0.7"/>
+    <rect x="170" y="100" width="30" height="20" fill="#81C784" opacity="0.7"/>
+    <rect x="200" y="80" width="30" height="20" fill="#81C784" opacity="0.7"/>
+    
+    <!-- 标注线和文字 -->
+    <!-- 总高度 -->
+    <line x1="40" y1="60" x2="40" y2="200" stroke="#666" stroke-width="1"/>
+    <polygon points="40,60 37,66 43,66" fill="#666"/>
+    <polygon points="40,200 37,194 43,194" fill="#666"/>
+    <text x="25" y="130" font-family="Arial" font-size="10" fill="#333" transform="rotate(-90, 25, 130)">total rise</text>
+    
+    <!-- 总深度 -->
+    <line x1="50" y1="210" x2="260" y2="210" stroke="#666" stroke-width="1"/>
+    <polygon points="50,210 56,207 56,213" fill="#666"/>
+    <polygon points="260,210 254,207 254,213" fill="#666"/>
+    <text x="155" y="225" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">total run</text>
+    
+    <!-- 单个台阶标注 -->
+    <!-- tread -->
+    <line x1="80" y1="150" x2="110" y2="150" stroke="#ff6b35" stroke-width="1"/>
+    <text x="95" y="145" font-family="Arial" font-size="9" fill="#ff6b35" text-anchor="middle">tread</text>
+    
+    <!-- rise -->
+    <line x1="70" y1="160" x2="70" y2="180" stroke="#ff6b35" stroke-width="1"/>
+    <text x="65" y="175" font-family="Arial" font-size="9" fill="#ff6b35" transform="rotate(-90, 65, 175)">rise</text>
+    
+    <!-- run -->
+    <line x1="140" y1="130" x2="170" y2="130" stroke="#4caf50" stroke-width="1"/>
+    <text x="155" y="125" font-family="Arial" font-size="9" fill="#4caf50" text-anchor="middle">run</text>
+    
+    <!-- headroom -->
+    <line x1="200" y1="40" x2="200" y2="80" stroke="#9c27b0" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="205" y="60" font-family="Arial" font-size="9" fill="#9c27b0">headroom</text>
+    
+    <!-- floor opening -->
+    <line x1="30" y1="30" x2="280" y2="30" stroke="#795548" stroke-width="2"/>
+    <text x="155" y="25" font-family="Arial" font-size="10" fill="#795548" text-anchor="middle">floor opening</text>
+    
+    <!-- stringer length -->
+    <line x1="50" y1="240" x2="230" y2="240" stroke="#607d8b" stroke-width="1" stroke-dasharray="5,5"/>
+    <text x="140" y="255" font-family="Arial" font-size="10" fill="#607d8b" text-anchor="middle">stringer length</text>
+  </g>
+  
+  <!-- 标准结构和Flush结构示意 -->
+  <g transform="translate(20, 260)">
+    <text x="0" y="0" font-family="Arial" font-size="12" fill="#333" font-weight="bold">标准结构 vs Flush结构</text>
+    
+    <!-- 标准结构 -->
+    <g transform="translate(0, 15)">
+      <text x="0" y="0" font-family="Arial" font-size="10" fill="#666">standard mount</text>
+      <rect x="100" y="-5" width="20" height="8" fill="#81C784" opacity="0.7"/>
+      <rect x="120" y="-10" width="20" height="8" fill="#81C784" opacity="0.7"/>
+      <rect x="140" y="-15" width="20" height="8" fill="#81C784" opacity="0.7"/>
+    </g>
+    
+    <!-- Flush结构 -->
+    <g transform="translate(200, 15)">
+      <text x="0" y="0" font-family="Arial" font-size="10" fill="#666">flush mount</text>
+      <rect x="80" y="-5" width="20" height="8" fill="#81C784" opacity="0.7"/>
+      <rect x="100" y="-10" width="20" height="8" fill="#81C784" opacity="0.7"/>
+      <rect x="120" y="-15" width="20" height="8" fill="#81C784" opacity="0.7"/>
+      <rect x="95" y="-12" width="5" height="15" fill="#666"/>
+    </g>
+  </g>
+</svg>

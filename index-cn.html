@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stair Calculator - Professional Stair Design Tool | Free Online</title>
-    <meta name="description" content="A professional stair calculator supporting Standard and Flush structures, automatically computing step count, dimensions, and Blondel value with visual diagrams. Ideal for architectural design and renovation planning.">
-    <meta name="keywords" content="stair calculator, stair design, step calculation, Blondel formula, construction tool, renovation calculator, stair dimensions">
-    <meta name="author" content="Stair Calculator">
+    <title>楼梯计算器 - 专业楼梯设计工具 | 免费在线计算</title>
+    <meta name="description" content="专业的楼梯计算器工具，支持标准结构和平齐结构设计，自动计算台阶数量、尺寸和Blondel值，提供可视化楼梯图形，适用于建筑设计和装修规划。">
+    <meta name="keywords" content="楼梯计算器,楼梯设计,台阶计算,Blondel公式,建筑工具,装修计算,楼梯尺寸">
+    <meta name="author" content="楼梯计算器">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://stair-calculator.com">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://stair-calculator.com">
-    <meta property="og:title" content="Stair Calculator - Professional Stair Design Tool">
-    <meta property="og:description" content="Professional stair calculator supporting Standard and Flush structures; auto-computes steps, dimensions, and Blondel value.">
+    <meta property="og:title" content="楼梯计算器 - 专业楼梯设计工具">
+    <meta property="og:description" content="专业的楼梯计算器工具，支持标准结构和平齐结构设计，自动计算台阶数量、尺寸和Blondel值。">
     <meta property="og:image" content="https://stair-calculator.com/og-image.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://stair-calculator.com">
-    <meta property="twitter:title" content="Stair Calculator - Professional Stair Design Tool">
-    <meta property="twitter:description" content="Professional stair calculator supporting Standard and Flush structures; auto-computes steps, dimensions, and Blondel value.">
+    <meta property="twitter:title" content="楼梯计算器 - 专业楼梯设计工具">
+    <meta property="twitter:description" content="专业的楼梯计算器工具，支持标准结构和平齐结构设计，自动计算台阶数量、尺寸和Blondel值。">
     <meta property="twitter:image" content="https://stair-calculator.com/og-image.jpg">
     
     <!-- Favicon -->
@@ -46,8 +46,8 @@
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "Stair Calculator",
-        "description": "Professional stair calculator supporting Standard and Flush structures",
+        "name": "楼梯计算器",
+        "description": "专业的楼梯计算器工具，支持标准结构和平齐结构设计",
         "url": "https://stair-calculator.com",
         "applicationCategory": "DesignApplication",
         "operatingSystem": "Web Browser",
@@ -59,7 +59,7 @@
     }
     </script>
     <style>
-        /* Global CSS Reset */
+        /* 全局样式重置 */
         * {
             margin: 0;
             padding: 0;
@@ -77,7 +77,7 @@
             background-color: #f8f9fa;
         }
 
-        /* Website Header Styles */
+        /* 网站头部样式 */
         .site-header {
             background: #2196F3;
             color: white;
@@ -137,7 +137,7 @@
             background-color: rgba(255,255,255,0.2);
         }
 
-        /* Language Switcher Styles */
+        /* 语言切换样式 */
         .language-switch {
             display: flex;
             gap: 0.5rem;
@@ -166,7 +166,7 @@
             border-color: #3498db;
         }
 
-        /* Image Modal Styles */
+        /* 图片弹窗样式 */
         .image-modal {
             display: none;
             position: fixed;
@@ -212,7 +212,7 @@
             min-height: calc(100vh - 200px);
         }
 
-        /* Introduction Section Styles */
+        /* 介绍区域样式 */
         .intro-section {
             background: #f8f9fa;
             padding: 0;
@@ -314,13 +314,13 @@
             color: #2c3e50;
         }
 
-        /* Calculator Section Styles */
+        /* 计算器区域样式 */
         .calculator-section {
             padding: 0rem 0;
             background: white;
         }
 
-        /* Common Section Styles */
+        /* 通用区域样式 */
         .section-title {
             font-size: 2rem;
             font-weight: 600;
@@ -329,7 +329,7 @@
             color: #2c3e50;
         }
 
-        /* How to Use Calculator Styles */
+        /* 如何使用计算器样式 */
         .how-to-use-section {
             padding: 2rem 0;
             background: white;
@@ -469,7 +469,7 @@
             font-size: 0.85rem;
         }
 
-        /* FAQ Styles */
+        /* FAQ样式 */
         .faq-section {
             padding: 2rem 0;
             background: #f8f9fa;
@@ -616,7 +616,7 @@
             }
         }
 
-        /* About Us Styles */
+        /* 关于我们样式 */
         .about-section {
             padding: 4rem 0;
             background: white;
@@ -666,7 +666,7 @@
             line-height: 1.6;
         }
 
-        /* Contact Us Styles */
+        /* 联系我们样式 */
         .contact-section {
             padding: 4rem 0;
             background: #f8f9fa;
@@ -708,7 +708,7 @@
             line-height: 1.6;
         }
 
-        /* Footer Styles */
+        /* 页脚样式 */
         .site-footer {
             background: #2c3e50;
             color: white;
@@ -765,7 +765,7 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive Design */
+        /* 响应式设计 */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -1176,41 +1176,41 @@
     </style>
 </head>
 <body>
-    <!-- Website Header -->
+    <!-- 网站头部 -->
     <header class="site-header">
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-brand">
-                    <h1 class="brand-title">📐 Stair Calculator (Pro Edition)<span class="brand-subtitle"> </span></h1>
+                    <h1 class="brand-title">📐 楼梯计算器 （智能版）<span class="brand-subtitle"> </span></h1>
                 </div>
                 <div class="nav-menu">
-                    <a href="#calculator2" class="nav-link">Calculator</a>
-                    <a href="#how-to-use" class="nav-link">User Guide</a>
-                    <a href="#faq" class="nav-link">FAQ</a>
+                    <a href="#calculator2" class="nav-link">计算器</a>
+                    <a href="#how-to-use" class="nav-link">使用指南</a>
+                    <a href="#faq" class="nav-link">常见问题</a>
                     <div class="language-switch">
-                        <button class="lang-btn" data-lang="zh">中文</button>
-                        <button class="lang-btn active" data-lang="en">EN</button>
+                        <button class="lang-btn active" data-lang="zh">中文</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Main Content Area -->
+    <!-- 主要内容区域 -->
     <main class="main-content">
-        <!-- Tool Introduction Area -->
+        <!-- 工具介绍区域 -->
         <section id="intro" class="intro-section">
             <div class="intro-container">
                 <div class="banner-container">
-                    <img src="banner.png" alt="Smart Stair Calculator - DIY Scene Display" class="banner-image">
+                    <img src="banner.png" alt="智能楼梯计算器 - DIY场景展示" class="banner-image">
                     <div id="calculator2" class="banner-overlay">
-                        <h2 class="banner-text">Smart & Easy Stair Calculator: 'Minimal Input' + 'Optimal Parameters' + 'Real-time Preview'</h2>
+                        <h2 class="banner-text">智能好用的楼梯计算器：『最简输入』+『最佳参数』+『实时预览』</h2>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Calculator Area -->
+        <!-- 计算器区域 -->
         <section id="calculator" class="calculator-section">
             <div class="container">
 
@@ -1219,62 +1219,62 @@
             <div class="input-section">
                 <div class="primary-input highlight">
                     <div class="input-group">
-                        <label for="totalHeight" class="main-title">① Total Height (cm)
+                        <label for="totalHeight" class="main-title">① 总体高度 (cm)
                         <div class="tooltip">
                             <span class="info-icon">?</span>
-                            <span class="tooltip-text">Simply input the total height and the system will use built-in optimal parameters to provide real-time preview, output step count, and recommended riser height and tread depth. For customization or fine-tuning, continue with the parameters below.</span>
+                            <span class="tooltip-text">只需要输入此总体高度，就可以按内置的最佳参数，即可实时预览，并输出台阶层数，以及推荐的阶梯高度和深度。如需自定义或者微调，可以继续输入后面的参数。</span>
                         </div>
 
                         </label>
-                        <input type="number" id="totalHeight" value="200" min="0" step="20" placeholder="Enter total stair height" required>
-
-                    </div>(Auto-generates with this parameter only)
+                        <input type="number" id="totalHeight" value="200" min="0" step="20" placeholder="请输入楼梯总高度" required>
+                        
+                    </div>（只填此参数即可自动生成）
                 </div>
 
                 <div class="input-group primary-input"  >
                     <label class="main-title">
-                        ② Recommended Step Dimensions (cm)
+                        ② 每层楼梯值建议 (cm)
                         <div class="tooltip">
                             <span class="info-icon">?</span>
-                            <span class="tooltip-text">Built-in default uses industry-standard Blondel formula: 2H + D = 63cm, where H is riser height and D is tread depth. This formula ensures stair comfort and safety. You can also customize height and depth based on specific scenarios. The actual step depth and height will be as close as possible to these values.</span>
+                            <span class="tooltip-text">内置默认采用行业Blondel公式：2H + D = 63cm，其中H为台阶高度，D为踏板深度。该公式用于确保楼梯的舒适性和安全性。也可以根据具体场景自定义高度和深度。右侧实际台阶深度和高度会尽量接近这里的值。</span>
                         </div>
                     </label>
                     <select id="blondelType" class="blondel-select">
-                        <option value="comfort">Comfort: Riser 17cm / Tread 29cm</option>
-                        <option value="standard" selected>Standard: Riser 17.5cm / Tread 28cm</option>
-                        <option value="compact">Compact: Riser 18cm / Tread 27cm</option>
+                        <option value="comfort">舒适型:高17cm/深29cm</option>
+                        <option value="standard" selected>标准型:高17.5cm/深28cm</option>
+                        <option value="compact">紧凑型:高18cm/深27cm</option>
                     </select>
                     <div class="input-row">
                         <div class="input-group">
-                            <label for="riserHeight">Custom Height</label>
+                            <label for="riserHeight">自定义高度</label>
                             <input type="number" id="riserHeight" value="17.5" min="15" max="20" step="0.1">
-
+                            
                         </div>
                         <div class="input-group">
-                            <label for="treadDepth">Custom Depth</label>
+                            <label for="treadDepth">自定义深度</label>
                             <input type="number" id="treadDepth" value="28" min="25" max="30" step="0.1">
                         </div>
-
-                    </div>(No modification needed - use default parameters)
+                        
+                    </div>（可不修改，直接采用默认参数）
                 </div>
  
                 <details class="advanced-params primary-input" >
-                    <summary class="main-title">Advanced Parameters (Optional)</summary>
+                    <summary class="main-title">专业参数设置(可不改)</summary>
                     <div class="input-group">
-                        <label for="totalDepth">③ Total Depth Limit (cm)
+                        <label for="totalDepth">③ 总深度限制 (cm)
                             <div class="tooltip">
                                 <span class="info-icon">?</span>
-                                <span class="tooltip-text">Some scenarios have limited space that restricts the maximum total depth of stairs. When exceeded, the system will automatically adjust step parameters</span>
+                                <span class="tooltip-text">有些场景空间有限，会限制楼梯的最大总深度，超出时会自动调整台阶参数</span>
                             </div>
                         </label>
-                        <input type="number" id="totalDepth" min="0" step="100" placeholder="Optional, no limit">
+                        <input type="number" id="totalDepth" min="0" step="100" placeholder="可选，不限制">
                     </div>
 
                     <div class="input-group">
-                        <label for="treadThickness">④ Tread Thickness (cm)
+                        <label for="treadThickness">④ 踏板厚度 (cm)
                             <div class="tooltip">
                                 <span class="info-icon">?</span>
-                                <span class="tooltip-text">The thickness of the tread, affecting the stair's structure and appearance, but this setting does not affect main outputs like step count, height, and depth</span>
+                                <span class="tooltip-text">踏板的厚度，影响楼梯的结构和外观，但该设置不影响台阶数、高度和深度等主要输出</span>
                             </div>
                         </label>
                         <input type="number" id="treadThickness" value="0" min="0" step="1">
@@ -1282,60 +1282,60 @@
 
                     <div class="input-group">
                         <label>
-                            ⑤ Structure Type
+                            ⑤ 结构类型
                             <div class="tooltip">
                                 <span class="info-icon">?</span>
-                                <span class="tooltip-text">The main difference between Standard and Flush structures is whether the top tread and the top stair surface are on the same plane. In standard structures, the top tread is typically one step lower than the top surface. Therefore, in standard structures, the number of treads used is one less than the number of steps. Flush structures have the same number of treads as steps, but the total depth will be one tread depth greater. See the diagram below for details.</span>
+                                <span class="tooltip-text">标准结构和Flush结构的主要区别在于，楼梯的最高踏板，跟楼梯最高面，是不是一个平面。常见的标准结构，最高踏板会比楼梯最高面低一层。所以标准结构下，用到材料的踏板数，会比阶梯数少一级。Flush结构的踏板数和阶梯数是一样的，但Flush结构的总深度会多一级台阶深度。具体见下面示意图。</span>
                             </div>
                         </label>
                         <select id="structureType">
-                            <option value="standard">Standard Structure</option>
-                            <option value="flush">Flush Structure</option>
+                            <option value="standard">标准结构</option>
+                            <option value="flush">Flush结构</option>
                         </select>
                     </div>
 
                     <div class="input-group">
 
                     </div>
-
+                    
                     <div class="reference-image">
-                         <img src="flush.png" alt="Stair Reference Diagram" style="width: 100%; max-width: 400px; height: auto; border: 1px solid #ddd; border-radius: 4px; margin-top: 15px; cursor: pointer;" onclick="openImageModal('flush.png')">
+                         <img src="flush.png" alt="楼梯参考图" style="width: 100%; max-width: 400px; height: auto; border: 1px solid #ddd; border-radius: 4px; margin-top: 15px; cursor: pointer;" onclick="openImageModal('flush.png')">
                      </div>
-
+                   
                 </details>  
             </div>
 
             <div class="visualization">
                 <div class="visualization-header">
-                    <h3><button id="generateBtn" class="generate-btn">Real-time Stair Preview</button></h3>
-
+                    <h3><button id="generateBtn" class="generate-btn">楼梯实时预览</button></h3>
+                   
                 </div>
                 <canvas id="stairCanvas"></canvas>
                 <div class="results">
-                    <h4>Calculation Results</h4>
+                    <h4>计算结果</h4>
                     <table class="result-table">
                         <thead>
                             <tr>
-                                <th>Parameter</th>
-                                <th>Calculated Value</th>
-                                <th>Description</th>
+                                <th>参数名称</th>
+                                <th>计算值</th>
+                                <th>说明</th>
                             </tr>
                         </thead>
                         <tbody id="results">
                             <tr>
-                                <td>Total Height</td>
+                                <td>总高度</td>
                                 <td id="totalHeightResult">-</td>
                                 <td>-</td>
                             </tr>
                             <tr>
-                                <td>Total Depth</td>
+                                <td>总深度</td>
                                 <td id="totalDepthResult">-</td>
                                 <td>-</td>
                             </tr>
                         </tbody>
                     </table>
                     <div id="validationResults" class="result-validation">
-                        <!-- Validation results will be dynamically populated by JavaScript -->
+                        <!-- 校验结果将通过JavaScript动态填充 -->
                     </div>
                 </div>
             </div>
@@ -1343,35 +1343,35 @@
             </div>
         </section>
 
-        <!-- How to Use Calculator Area -->
+        <!-- 如何使用计算器区域 -->
         <section id="how-to-use" class="how-to-use-section">
             <div class="container">
-                <h2 class="section-title">User Guide</h2>
+                <h2 class="section-title">使用指南</h2>
                 <div class="usage-content">
                     <div class="detailed-guide">
                         <div class="guide-grid">
                             <div class="guide-item">
-                                <h4>1️⃣ Default Minimal Input</h4>
+                                <h4>1️⃣ 默认最简输入</h4>
                                 <ul>
-                                    <li><strong>Enter total height only:</strong>Input the vertical distance between floors (e.g., 280cm)</li>
-                                    <li><strong>System auto-recommendation:</strong>Uses default optimal parameters that meet standards</li>
-                                    <li><strong>One-click results:</strong>Immediately get best output values and stair design</li>
+                                    <li><strong>只需输入总体高度：</strong>输入楼层间的垂直距离（如280cm）</li>
+                                    <li><strong>系统自动推荐：</strong>使用符合标准的默认最佳参数</li>
+                                    <li><strong>一键获得结果：</strong>立即得到最佳输出值和楼梯设计</li>
                                 </ul>
                             </div>
                             <div class="guide-item">
-                                <h4>2️⃣ Personalized Settings</h4>
+                                <h4>2️⃣ 个人性设置</h4>
                                 <ul>
-                                    <li><strong>Custom step parameters:</strong>Adjust the height and depth of each stair step</li>
-                                    <li><strong>Total depth limitation:</strong>Set maximum depth based on space constraints</li>
-                                    <li><strong>Structure type selection:</strong>Options for Standard or Flush structures</li>
+                                    <li><strong>自定义台阶参数：</strong>调整每层楼梯的高度和深度</li>
+                                    <li><strong>总深度限制：</strong>根据空间约束设置最大深度</li>
+                                    <li><strong>结构类型选择：</strong>标准结构或Flush结构等选项</li>
                                 </ul>
                             </div>
                             <div class="guide-item">
-                                <h4>3️⃣ Real-time Preview</h4>
+                                <h4>3️⃣ 可实时预览</h4>
                                 <ul>
-                                    <li><strong>Real-time stair diagram:</strong>Immediately view stair renderings when adjusting parameters</li>
-                                    <li><strong>Output table:</strong>Real-time display of calculation results and parameter validation</li>
-                                    <li><strong>Parameter optimization:</strong>Adjust input parameters anytime based on preview effects</li>
+                                    <li><strong>实时楼梯图：</strong>调整参数时立即查看楼梯效果图</li>
+                                    <li><strong>输出表格：</strong>实时显示计算结果和参数验证</li>
+                                    <li><strong>参数优化：</strong>根据预览效果随时调整输入参数</li>
                                 </ul>
                             </div>
                         </div>
@@ -1382,36 +1382,36 @@
             </div>
         </section>
 
-        <!-- FAQ Area -->
+        <!-- 常见问题区域 -->
         <section id="faq" class="faq-section">
             <div class="container">
-                <h2 class="section-title">Frequently Asked Questions</h2>
+                <h2 class="section-title">常见问题</h2>
                 <div class="faq-content">
 
-
+                    
                     <div class="faq-item">
                         <details open>
                             <summary class="faq-question">
                                 <span class="question-icon">📏</span>
-                                <span>How should stair riser height and tread depth be set?</span>
+                                <span>楼梯台阶的高度和深度应该如何设置？</span>
                                 <span class="toggle-icon">▼</span>
                             </summary>
                             <div class="faq-answer">
-                                <p><strong>Riser Height:</strong></p>
+                                <p><strong>台阶高度（立板）：</strong></p>
                                 <ul>
-                                    <li>Recommended range: 15-20cm</li>
-                                    <li>Optimal range: 16.5-18cm</li>
-                                    <li>Too high increases fatigue, too low wastes space</li>
+                                    <li>建议范围：15-20cm</li>
+                                    <li>最佳范围：16.5-18cm</li>
+                                    <li>过高会增加疲劳，过低会浪费空间</li>
                                 </ul>
-                                <p><strong>Tread Depth:</strong></p>
+                                <p><strong>踏板深度：</strong></p>
                                 <ul>
-                                    <li>Recommended range: 25-30cm</li>
-                                    <li>Optimal range: 27-29cm</li>
-                                    <li>Ensure the entire foot can land completely</li>
+                                    <li>建议范围：25-30cm</li>
+                                    <li>最佳范围：27-29cm</li>
+                                    <li>确保整个脚掌能够完全着地</li>
                                 </ul>
-                                 <p>This tool offers three common combinations: Comfort (Riser 17cm / Tread 29cm), Standard (Riser 17.5cm / Tread 28cm), Compact (Riser 18cm / Tread 27cm), of course you can also customize the settings.</p>
+                                 <p>本工具采用了三种常见的组合，舒适型（高17cm/深29cm），标准型（17.5cm/深28cm），紧凑型（18cm/深27cm），当然也可以自定义设置。</p>
                             </div>
-
+                            
                         </details>
                     </div>
 
@@ -1421,16 +1421,16 @@
                         <details>
                             <summary class="faq-question">
                                 <span class="question-icon">❓</span>
-                                <span>What is the Blondel formula? Why should this standard be followed?</span>
+                                <span>什么是Blondel公式？为什么要遵循这个标准？</span>
                                 <span class="toggle-icon">▼</span>
                             </summary>
                             <div class="faq-answer">
-                                <p>The Blondel formula is the golden rule of stair design proposed by French architect François Blondel: <strong>2×Riser Height + Tread Depth = 63cm</strong>. This formula is based on ergonomic principles, ensuring comfort and safety for most people when walking. Following this standard can:</p>
+                                <p>Blondel公式是由法国建筑师François Blondel提出的楼梯设计黄金法则：<strong>2×台阶高度 + 踏板深度 = 63cm</strong>。这个公式基于人体工程学原理，确保大多数人行走时的舒适性和安全性。遵循这个标准可以：</p>
                                 <ul>
-                                    <li>Reduce walking fatigue and increase comfort</li>
-                                    <li>Lower fall risk and enhance safety</li>
-                                    <li>Comply with international building code requirements</li>
-                                    <li>Accommodate use by people of different age groups</li>
+                                    <li>减少行走疲劳，提高舒适度</li>
+                                    <li>降低跌倒风险，增强安全性</li>
+                                    <li>符合国际建筑规范要求</li>
+                                    <li>适应不同年龄段人群使用</li>
                                 </ul>
                             </div>
                         </details>
@@ -1440,17 +1440,17 @@
                         <details>
                             <summary class="faq-question">
                                 <span class="question-icon">🏗️</span>
-                                <span>What is the difference between Standard and Flush structures?</span>
+                                <span>标准结构和Flush结构有什么区别？</span>
                                 <span class="toggle-icon">▼</span>
                             </summary>
                             <div class="faq-answer">
-                                <p><strong>Standard Structure:</strong>Traditional stair design where treads protrude from risers with distinct tread edges (nosing)</p>
-                                <p><strong>Flush Structure:</strong>Modern minimalist design where treads are flush with risers, no protruding edges, cleaner appearance.</p>
-                                <p>In dimension design, the main difference between Standard and Flush structures is whether the top tread and the top stair surface are on the same plane. In standard structures, the top tread is typically one step lower than the top surface. Therefore, in standard structures, the number of treads used is one less than the number of steps. Flush structures have the same number of treads as steps, but the total depth will be one tread depth greater.</p>
-                                <p>Selection advice: Standard structure is safer and more slip-resistant, Flush structure is more aesthetically modern. Choose based on usage scenario and personal preference.</p>
- <img src="flush.png" alt="Stair Reference Diagram" style="width: 100%; max-width: 400px; height: auto; border: 1px solid #ddd; border-radius: 4px; margin-top: 15px; cursor: pointer;" onclick="openImageModal('flush.png')">
-
-
+                                <p><strong>标准结构：</strong>传统的楼梯设计，踏板突出于立板，有明显的踏板边缘（踏板鼻）</p>
+                                <p><strong>Flush结构：</strong>现代简约设计，踏板与立板齐平，没有突出的边缘，外观更加简洁。</p>
+                                <p>在尺寸设计时，标准结构和Flush结构的主要区别在于，楼梯的最高踏板，跟楼梯最高面，是不是一个平面。常见的标准结构，最高踏板会比楼梯最高面低一层。所以标准结构下，用到材料的踏板数，会比阶梯数少一级。Flush结构的踏板数和阶梯数是一样的，但Flush结构的总深度会多一级台阶深度。</p>
+                                <p>选择建议：标准结构更安全防滑，Flush结构更美观现代。根据使用场景和个人喜好选择。</p>
+ <img src="flush.png" alt="楼梯参考图" style="width: 100%; max-width: 400px; height: auto; border: 1px solid #ddd; border-radius: 4px; margin-top: 15px; cursor: pointer;" onclick="openImageModal('flush.png')">
+          
+                           
                             </div>
                         </details>
                     </div>
@@ -1462,34 +1462,34 @@
                         <details>
                             <summary class="faq-question">
                                 <span class="question-icon">🌍</span>
-                                <span>Are there relevant national and regional design standards?</span>
+                                <span>有相关的国家及地区设计标准吗？</span>
                                 <span class="toggle-icon">▼</span>
                             </summary>
                             <div class="faq-answer">
-                                <h3>Comparison Table of Residential Stair Design Standards by Major Countries/Regions</h3>
+                                <h3>主要国家/地区住宅楼梯设计标准对比表</h3>
                                 <div class="standards-table">
                                     <table>
                                         <thead>
                                             <tr>
-                                                <th>Country/Region</th>
-                                                <th>Riser Height</th>
-                                                <th>Tread Depth</th>
-                                                <th>Stair Width</th>
-                                                <th>Angle</th>
-                                                <th>Handrail Height</th>
+                                                <th>国家/地区</th>
+                                                <th>踏步高度 (蹴上/Riser)</th>
+                                                <th>踏步深度 (踏面/Tread)</th>
+                                                <th>梯段净宽 (Width)</th>
+                                                <th>坡度 (Angle)</th>
+                                                <th>扶手高度</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><strong>USA</strong> (IRC)</td>
+                                                <td><strong>美国</strong> (IRC)</td>
                                                 <td>≤ 196mm (7.75")</td>
                                                 <td>≥ 254mm (10")</td>
                                                 <td>≥ 914mm (36")</td>
-                                                <td>~30-32°</td>
+                                                <td>约30-32°</td>
                                                 <td>864-965mm (34-38")</td>
                                             </tr>
                                             <tr>
-                                                <td><strong>UK</strong> (Part K)</td>
+                                                <td><strong>英国</strong> (Part K)</td>
                                                 <td>150-220mm</td>
                                                 <td>≥ 220mm</td>
                                                 <td>≥ 800mm</td>
@@ -1497,7 +1497,7 @@
                                                 <td>≥ 900mm</td>
                                             </tr>
                                             <tr>
-                                                <td><strong>China</strong> (GB50352-2019)</td>
+                                                <td><strong>中国</strong> (GB50352-2019)</td>
                                                 <td>≤ 230mm</td>
                                                 <td>≥ 150mm</td>
                                                 <td>≥ 750mm</td>
@@ -1505,7 +1505,7 @@
                                                 <td>≥ 900mm</td>
                                             </tr>
                                             <tr>
-                                                <td><strong>Japan</strong> (Building Standards Act)</td>
+                                                <td><strong>日本</strong> (建築基準法)</td>
                                                 <td>≤ 230mm</td>
                                                 <td>≥ 150mm</td>
                                                 <td>≥ 750mm</td>
@@ -1513,36 +1513,36 @@
                                                 <td>≥ 850mm</td>
                                             </tr>
                                             <tr>
-                                                <td><strong>Germany</strong> (DIN 18065)</td>
+                                                <td><strong>德国</strong> (DIN 18065)</td>
                                                 <td>≤ 190mm</td>
                                                 <td>≥ 230mm</td>
                                                 <td>≥ 800mm</td>
-                                                <td>~30-32°</td>
+                                                <td>约30-32°</td>
                                                 <td>900-1100mm</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
-
-                                <h4>Special Requirements</h4>
-
-                                <h5>Accessible Design Standards</h5>
+                                
+                                <h4>特殊要求</h4>
+                                
+                                <h5>无障碍设计标准</h5>
                                 <ul>
-                                    <li><strong>Slope</strong>: ≤ 30°</li>
-                                    <li><strong>Riser Height</strong>: ≤ 160mm</li>
-                                    <li><strong>Tread Depth</strong>: ≥ 300mm</li>
-                                    <li><strong>Stair Width</strong>: ≥ 1200mm</li>
+                                    <li><strong>坡度</strong>: ≤ 30°</li>
+                                    <li><strong>踏步高度</strong>: ≤ 160mm</li>
+                                    <li><strong>踏步深度</strong>: ≥ 300mm</li>
+                                    <li><strong>梯段净宽</strong>: ≥ 1200mm</li>
                                 </ul>
-
-                                <h5>Elderly-Friendly Design</h5>
+                                
+                                <h5>老年人友好设计</h5>
                                 <ul>
-                                    <li><strong>Riser Height</strong>: ≤ 160mm</li>
-                                    <li><strong>Tread Depth</strong>: ≥ 280mm</li>
-                                    <li><strong>Handrails</strong>: Both sides required, height 750-850mm</li>
-                                    <li><strong>Anti-slip</strong>: Anti-slip measures required</li>
+                                    <li><strong>踏步高度</strong>: ≤ 160mm</li>
+                                    <li><strong>踏步深度</strong>: ≥ 280mm</li>
+                                    <li><strong>扶手</strong>: 双侧必需，高度750-850mm</li>
+                                    <li><strong>防滑</strong>: 必需防滑措施</li>
                                 </ul>
-
-                                <p><em>Note: Public building stair standards and school stair standards differ slightly from residential stair standards. Please consult relevant regulations if needed.</em></p>
+                                
+                                <p><em>注：公共建筑楼梯标准、学校楼梯标准与住宅楼梯标准略有不同，如有需要请查询相关规范。</em></p>
                             </div>
                         </details>
                     </div>
@@ -1552,17 +1552,17 @@
                         <details>
                             <summary class="faq-question">
                                 <span class="question-icon">🔧</span>
-                                <span>How to handle conflicts between space limitations and stair design?</span>
+                                <span>如何处理空间限制和楼梯设计的矛盾？</span>
                                 <span class="toggle-icon">▼</span>
                             </summary>
                             <div class="faq-answer">
-                                <p>When space is limited, consider the following strategies:</p>
+                                <p>当空间有限时，可以采用以下策略：</p>
                                 <ul>
-                                    <li><strong>Set total depth limitations:</strong>The system will optimize design within constraints</li>
-                                    <li><strong>Choose compact parameters:</strong>Use 18cm height + 27cm depth combination</li>
-                                    <li><strong>Consider spiral stairs:</strong>Suitable solution for extremely small spaces</li>
-                                    <li><strong>Segmented design:</strong>Use landings to divide long stairs into several sections</li>
-                                    <li><strong>Professional consultation:</strong>For complex situations, consult an architect</li>
+                                    <li><strong>设置总深度限制：</strong>系统会在限制范围内优化设计</li>
+                                    <li><strong>选择紧凑型参数：</strong>使用18cm高度 + 27cm深度的组合</li>
+                                    <li><strong>考虑旋转楼梯：</strong>适用于极小空间的解决方案</li>
+                                    <li><strong>分段设计：</strong>使用平台将长楼梯分成几段</li>
+                                    <li><strong>专业咨询：</strong>复杂情况建议咨询建筑师</li>
                                 </ul>
                             </div>
                         </details>
@@ -1574,38 +1574,38 @@
 
     </main>
 
-    <!-- Website Footer -->
+    <!-- 网站页脚 -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Stair Calculator</h4>
-                    <p>Professional stair design tool,<br>Simpler, smarter, more intuitive.</p>
+                    <h4>楼梯计算器</h4>
+                    <p>专业的楼梯设计工具，<br>更简单更智能更直观。</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4>快速链接</h4>
                     <ul class="footer-links">
-                        <li><a href="#calculator">Calculator</a></li>
-                        <li><a href="#how-to-use">User Guide</a></li>
+                        <li><a href="#calculator">计算器</a></li>
+                        <li><a href="#how-to-use">使用指南</a></li>
 
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Support</h4>
+                    <h4>技术支持</h4>
                     <ul class="footer-links">
-                         <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
+                         <li><a href="#about">关于我们</a></li>
+                        <li><a href="#contact">联系我们</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2005 - 2025 Stair Calculator. All rights reserved.</p>
-
+                <p>&copy; 2005 - 2025 楼梯计算器. 保留所有权利.</p>
+      
             </div>
         </div>
     </footer>
 
-    <!-- Image Modal -->
+    <!-- 图片弹窗 -->
     <div id="imageModal" class="image-modal">
         <span class="close-modal" onclick="closeImageModal()">&times;</span>
         <div class="modal-content">

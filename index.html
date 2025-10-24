@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stair Calculator - Professional Stair Design Tool | Free Online</title>
-    <meta name="description" content="A professional stair calculator supporting Standard and Flush structures, automatically computing step count, dimensions, and Blondel value with visual diagrams. Ideal for architectural design and renovation planning.">
-    <meta name="keywords" content="stair calculator, stair design, step calculation, Blondel formula, construction tool, renovation calculator, stair dimensions">
+    <title>Stair Calculator - Professional Design Tool | Free Online</title>
+    <meta name="description" content="Professional stair calculator with real-time preview. Calculate steps, dimensions, and Blondel formula for Standard/Flush structures. Perfect for architects and DIY projects.">
+    <meta name="keywords" content="stair calculator, stair design, step calculation, Blondel formula, construction tool">
     <meta name="author" content="Stair Calculator">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://stair-calculator.com">
+    <link rel="canonical" href="https://aiStairCalculator.com">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://stair-calculator.com">
+    <meta property="og:url" content="https://aiStairCalculator.com">
     <meta property="og:title" content="Stair Calculator - Professional Stair Design Tool">
     <meta property="og:description" content="Professional stair calculator supporting Standard and Flush structures; auto-computes steps, dimensions, and Blondel value.">
-    <meta property="og:image" content="https://stair-calculator.com/og-image.jpg">
+    <meta property="og:image" content="https://aiStairCalculator.com/og-image.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://stair-calculator.com">
+    <meta property="twitter:url" content="https://aiStairCalculator.com">
     <meta property="twitter:title" content="Stair Calculator - Professional Stair Design Tool">
     <meta property="twitter:description" content="Professional stair calculator supporting Standard and Flush structures; auto-computes steps, dimensions, and Blondel value.">
-    <meta property="twitter:image" content="https://stair-calculator.com/og-image.jpg">
+    <meta property="twitter:image" content="https://aiStairCalculator.com/og-image.jpg">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -48,7 +48,7 @@
         "@type": "WebApplication",
         "name": "Stair Calculator",
         "description": "Professional stair calculator supporting Standard and Flush structures",
-        "url": "https://stair-calculator.com",
+        "url": "https://aiStairCalculator.com",
         "applicationCategory": "DesignApplication",
         "operatingSystem": "Web Browser",
         "offers": {
@@ -58,1122 +58,9 @@
         }
     }
     </script>
-    <style>
-        /* Global CSS Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.5;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-
-        /* Website Header Styles */
-        .site-header {
-            background: #2196F3;
-            color: white;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar {
-            padding: 0.5rem 0;
-        }
-
-        .nav-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-brand {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .brand-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin: 0;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        
-        .brand-subtitle {
-            font-size: 0.75rem;
-            opacity: 0.8;
-            font-weight: 400;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
-        }
-
-        .nav-link:hover {
-            background-color: rgba(255,255,255,0.2);
-        }
-
-        /* Language Switcher Styles */
-        .language-switch {
-            display: flex;
-            gap: 0.5rem;
-            margin-left: 1rem;
-        }
-
-        .lang-btn {
-            padding: 0.3rem 0.8rem;
-            border: 1px solid #ddd;
-            background: white;
-            color: #666;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .lang-btn:hover {
-            background: #f5f5f5;
-            border-color: #3498db;
-        }
-
-        .lang-btn.active {
-            background: #3498db;
-            color: white;
-            border-color: #3498db;
-        }
-
-        /* Image Modal Styles */
-        .image-modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 90%;
-            max-height: 90%;
-        }
-
-        .modal-image {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close-modal:hover {
-            opacity: 0.7;
-        }
-
-        /* 主要内容区域 */
-        .main-content {
-            min-height: calc(100vh - 200px);
-        }
-
-        /* Introduction Section Styles */
-        .intro-section {
-            background: #f8f9fa;
-            padding: 0;
-            text-align: center;
-        }
-
-        .intro-container {
-            max-width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        .banner-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .banner-image {
-            width: 100%;
-            max-width: 975px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-        
-        .banner-overlay {
-            position: absolute;
-            top: auto;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 0;
-            width: 100%;
-            max-width: 975px;
-            height: 20%;
-            background: linear-gradient(to top, rgba(33, 150, 243, 0.9) 0%, rgba(33, 150, 243, 0.6) 70%, transparent 100%);
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            padding: 0.5rem;
-        }
-        
-        .banner-text {
-            color: white;
-            font-size: 1.8rem;
-            font-weight: 600;
-            text-align: center;
-            margin: 0;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .intro-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #2c3e50;
-        }
-
-        .intro-description {
-            font-size: 1.2rem;
-            color: #5a6c7d;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            line-height: 1.8;
-        }
-
-        .intro-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .feature-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-text {
-            font-weight: 600;
-            color: #2c3e50;
-        }
-
-        /* Calculator Section Styles */
-        .calculator-section {
-            padding: 0rem 0;
-            background: white;
-        }
-
-        /* Common Section Styles */
-        .section-title {
-            font-size: 2rem;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-        }
-
-        /* How to Use Calculator Styles */
-        .how-to-use-section {
-            padding: 2rem 0;
-            background: white;
-        }
-
-        .usage-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .quick-start {
-            background: linear-gradient(135deg, #e3f2fd 0%, #f8f9fa 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            text-align: center;
-            border: 2px solid #2196F3;
-        }
-
-        .quick-start h3 {
-            color: #1976D2;
-            font-size: 1.6rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .highlight-text {
-            font-size: 1.1rem;
-            color: #2196F3;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .quick-steps {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .quick-step {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: white;
-            padding: 0.8rem 1.2rem;
-            border-radius: 6px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            font-weight: 500;
-        }
-
-        .step-icon {
-            font-size: 1.2rem;
-        }
-
-        .detailed-guide {
-            margin-bottom: 2rem;
-        }
-
-        .detailed-guide h3 {
-            color: #1976D2;
-            font-size: 1.4rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .guide-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .guide-item {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 3px solid #2196F3;
-        }
-
-        .guide-item h4 {
-            color: #1976D2;
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-        }
-
-        .guide-item ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .guide-item li {
-            margin-bottom: 0.6rem;
-            color: #424242;
-            line-height: 1.4;
-        }
-
-        .guide-item strong {
-            color: #1976D2;
-        }
-
-        .rules-explanation h3 {
-            color: #1976D2;
-            font-size: 1.4rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .rules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.2rem;
-        }
-
-        .rule-card {
-            background: white;
-            padding: 1.2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            text-align: center;
-            border-top: 3px solid #2196F3;
-        }
-
-        .rule-card h4 {
-            color: #1976D2;
-            margin-bottom: 0.4rem;
-            font-size: 1rem;
-        }
-
-        .rule-card p {
-            color: #2196F3;
-            font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .rule-card small {
-            color: #666;
-            font-size: 0.85rem;
-        }
-
-        /* FAQ Styles */
-        .faq-section {
-            padding: 2rem 0;
-            background: #f8f9fa;
-        }
-        
-        .faq-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            margin-bottom: 1rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        
-        .faq-question {
-            display: flex;
-            align-items: center;
-            padding: 1.2rem;
-            cursor: pointer;
-            background: white;
-            border: none;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #2c3e50;
-            transition: background-color 0.3s ease;
-            list-style: none;
-            width: 100%;
-        }
-        
-        .faq-question:hover {
-            background: #f8f9fa;
-        }
-        
-        .question-icon {
-            margin-right: 0.8rem;
-            font-size: 1.2rem;
-        }
-        
-        .toggle-icon {
-            margin-left: auto;
-            transition: transform 0.3s ease;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        details[open] .toggle-icon {
-            transform: rotate(180deg);
-        }
-        
-        .faq-answer {
-            padding: 0 1.2rem 1.2rem 3.2rem;
-            color: #5a6c7d;
-            line-height: 1.5;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        .faq-answer p {
-            margin: 0 0 0.8rem 0;
-        }
-        
-        .faq-answer p:last-child {
-            margin-bottom: 0;
-        }
-        
-        .faq-answer ul {
-            margin: 0.8rem 0;
-            padding-left: 1.2rem;
-        }
-        
-        .faq-answer li {
-            margin-bottom: 0.3rem;
-        }
-        
-        .faq-answer strong {
-            color: #2c3e50;
-        }
-        
-        .standards-table {
-            margin: 15px 0;
-            overflow-x: auto;
-        }
-        
-        .standards-table table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .standards-table th,
-        .standards-table td {
-            padding: 12px 8px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-            font-size: 14px;
-        }
-        
-        .standards-table th {
-            background: #f8f9fa;
-            font-weight: 600;
-            color: #333;
-        }
-        
-        .standards-table tbody tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-        
-        .standards-table tbody tr:nth-child(odd) {
-            background-color: #ffffff;
-        }
-        
-        .faq-answer h3 {
-            color: #2c3e50;
-            margin: 15px 0 10px 0;
-            font-size: 18px;
-        }
-        
-        .faq-answer h4 {
-            color: #34495e;
-            margin: 20px 0 10px 0;
-            font-size: 16px;
-        }
-        
-        .faq-answer h5 {
-            color: #34495e;
-            margin: 15px 0 8px 0;
-            font-size: 14px;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* About Us Styles */
-        .about-section {
-            padding: 4rem 0;
-            background: white;
-        }
-
-        .about-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .about-text h3 {
-            font-size: 2rem;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .about-text > p {
-            font-size: 1.1rem;
-            color: #5a6c7d;
-            text-align: center;
-            margin-bottom: 3rem;
-            line-height: 1.8;
-        }
-
-        .about-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .about-feature {
-            padding: 2rem;
-            background: #f8f9fa;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .about-feature h4 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .about-feature p {
-            color: #5a6c7d;
-            line-height: 1.6;
-        }
-
-        /* Contact Us Styles */
-        .contact-section {
-            padding: 4rem 0;
-            background: #f8f9fa;
-        }
-
-        .contact-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            padding: 2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .contact-icon {
-            font-size: 2rem;
-            margin-right: 1rem;
-            flex-shrink: 0;
-        }
-
-        .contact-details h4 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-details p {
-            color: #5a6c7d;
-            line-height: 1.6;
-        }
-
-        /* Footer Styles */
-        .site-footer {
-            background: #2c3e50;
-            color: white;
-            padding: 1.5rem 0 0.8rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 0.8rem;
-            color: #ecf0f1;
-            font-size: 1.1rem;
-        }
-
-        .footer-section p {
-            color: #bdc3c7;
-            line-height: 1.5;
-            font-size: 0.9rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.3rem;
-        }
-
-        .footer-links a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .footer-links a:hover {
-            color: #ecf0f1;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #34495e;
-            padding-top: 1.5rem;
-            text-align: center;
-            color: #bdc3c7;
-        }
-
-        .footer-bottom p {
-            margin-bottom: 0.3rem;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav-menu {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1rem;
-            }
-
-            .intro-title {
-                font-size: 2.2rem;
-            }
-
-            .intro-description {
-                font-size: 1.1rem;
-            }
-
-            .intro-features {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .guide-step {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .step-number {
-                margin-right: 0;
-                margin-bottom: 1rem;
-            }
-
-            .about-features {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-        }
-
-        :root {
-            --primary-color: #2196F3;
-            --secondary-color: #FFC107;
-            --success-color: #4CAF50;
-            --text-color: #333;
-            --border-color: #ddd;
-            --bg-color: #f5f5f5;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 1rem;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-        }
-
-        .calculator {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 10px;
-            padding: 10px;
-            max-width: 1400px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .input-section {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .primary-input {
-            background: #f8f9fa;
-            padding: 0.9rem;
-            border-radius: 8px;
-            border: 2px solid var(--primary-color);
-            margin-bottom: 1px;
-        }
-        
-        .primary-input.highlight {
-                    background: linear-gradient(135deg, #e3f2fd 0%, #f8f9fa 100%);
-                    border: 2px solid #ff9800 !important;
-                    box-shadow: 0 0 10px rgba(255, 193, 7, 0.5) !important;
-                }
-
-        .primary-input label {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .primary-input input {
-            font-size: 1.5rem;
-            padding: 0.8rem;
-        }
-
-        .input-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 0rem;
-        }
-
-        .input-group {
-            margin-bottom: 0.3rem;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        
-        .primary-input .input-group label:not(.main-title) {
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-        
-        .main-title {
-            font-size: 1.2rem !important;
-            font-weight: 600 !important;
-        }
-
-        .input-group input,
-        .input-group select {
-            width: 100%;
-            padding: 0.8rem 0.5rem;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .input-group input:focus,
-        .input-group select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        .blondel-select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            font-size: 1rem;
-            margin: 1rem 0;
-            background-color: white;
-            cursor: pointer;
-        }
-
-        .blondel-select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        .result-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-            background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-
-        .result-table th,
-        .result-table td {
-            padding: 0.8rem;
-            text-align: left;
-            border: 1px solid var(--border-color);
-        }
-
-        .result-table th:nth-child(1), .result-table td:nth-child(1) {
-            width: 100px;
-            min-width: 100px;
-        }
-
-        .result-table th:nth-child(2), .result-table td:nth-child(2) {
-            width: 100px;
-            min-width: 100px;
-            white-space: nowrap;
-        }
-
-        .result-table th:nth-child(3), .result-table td:nth-child(3) {
-            width: auto;
-           
-        }
-
-        .result-table th {
-            background-color: #f5f5f5;
-            font-weight: 600;
-            color: var(--text-color);
-        }
-
-        .result-table tbody tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-
-        .result-table tbody tr:nth-child(odd) {
-            background-color: #ffffff;
-        }
-
-        .result-validation {
-            margin-top: 1rem;
-            padding: 1rem;
-            background-color: #f8f9fa;
-            border-radius: 4px;
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .validation-item {
-            margin: 0.5rem 0;
-            color: var(--text-color);
-        }
-
-        .advanced-params {
-            background: white;
-            border-radius: 8px;
-            padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-            margin-top: 0rem;
-        }
-
-        .advanced-params summary {
-            cursor: pointer;
-            color: var(--primary-color);
-            font-weight: 600;
-            padding: 0.5rem 0;
-        }
-
-        .advanced-params summary::-webkit-details-marker {
-            color: var(--primary-color);
-        }
-
-        .visualization {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .visualization-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .results {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 4px;
-            margin-top: 1rem;
-        }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-
-        .result-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .result-label {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .result-value {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        #stairCanvas {
-            width: 100%;
-            height: 400px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            background: #fff;
-        }
-
-        .info-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 18px;
-            height: 18px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            font-size: 12px;
-            margin-left: 0.5rem;
-            cursor: help;
-        }
-
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltip-text {
-            visibility: hidden;
-            width: 250px;
-            background-color: #333;
-            color: white;
-            text-align: left;
-            padding: 8px;
-            border-radius: 6px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            font-size: 14px;
-        }
-
-        .tooltip:hover .tooltip-text {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .clearance-info {
-            display: flex;
-            justify-content: space-around;
-            margin: 1rem 0;
-        }
-
-        .info-image {
-            width: 45%;
-            height: auto;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 0.5rem;
-        }
-
-        .generate-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-
-        .generate-btn:hover {
-            background-color: #1976D2;
-        }
-
-        @media (max-width: 768px) {
-            .calculator {
-                grid-template-columns: 1fr;
-            }
-
-            .container {
-                padding: 1rem;
-            }
-
-            .blondel-combinations {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Website Header -->
@@ -1181,15 +68,21 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-brand">
-                    <h1 class="brand-title">📐 Stair Calculator (Pro Edition)<span class="brand-subtitle"> </span></h1>
+                    <h1 class="brand-title">📐 Stair Calculator (Pro Edition)<span class="brand-subtitle"></span></h1>
                 </div>
                 <div class="nav-menu">
                     <a href="#calculator2" class="nav-link">Calculator</a>
                     <a href="#how-to-use" class="nav-link">User Guide</a>
                     <a href="#faq" class="nav-link">FAQ</a>
-                    <div class="language-switch">
-                        <button class="lang-btn" data-lang="zh">中文</button>
-                        <button class="lang-btn active" data-lang="en">EN</button>
+                    <div class="language-dropdown">
+                        <button class="dropdown-btn">
+                            <span class="current-lang">EN</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#" class="lang-option active" data-lang="en">English</a>
+                            <a href="#" class="lang-option" data-lang="zh">中文</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1202,9 +95,9 @@
         <section id="intro" class="intro-section">
             <div class="intro-container">
                 <div class="banner-container">
-                    <img src="banner.png" alt="Smart Stair Calculator - DIY Scene Display" class="banner-image">
+                    <img src="banner.png" alt="Professional Stair Calculator with 3D Visualization and Real-time Design Preview" title="Professional Stair Calculator - Interactive 3D Design Tool with Real-time Preview" class="banner-image">
                     <div id="calculator2" class="banner-overlay">
-                        <h2 class="banner-text">Smart & Easy Stair Calculator: 'Minimal Input' + 'Optimal Parameters' + 'Real-time Preview'</h2>
+                        <h2 class="banner-text">Stair Calculator: Minimal Input , Optimal Parameters , Real-time Preview</h2>
                     </div>
                 </div>
             </div>
@@ -1219,40 +112,40 @@
             <div class="input-section">
                 <div class="primary-input highlight">
                     <div class="input-group">
-                        <label for="totalHeight" class="main-title">① Total Height (cm)
+                        <label for="totalHeight" class="main-title">① Total Height (inches)
                         <div class="tooltip">
                             <span class="info-icon">?</span>
                             <span class="tooltip-text">Simply input the total height and the system will use built-in optimal parameters to provide real-time preview, output step count, and recommended riser height and tread depth. For customization or fine-tuning, continue with the parameters below.</span>
                         </div>
 
                         </label>
-                        <input type="number" id="totalHeight" value="200" min="0" step="20" placeholder="Enter total stair height" required>
+                        <input type="number" id="totalHeight" value="80" min="0" step="10" placeholder="Enter total stair height" required>
 
                     </div>(Auto-generates with this parameter only)
                 </div>
 
                 <div class="input-group primary-input"  >
                     <label class="main-title">
-                        ② Recommended Step Dimensions (cm)
+                        ② Recommended Step Dimensions (inches)
                         <div class="tooltip">
                             <span class="info-icon">?</span>
-                            <span class="tooltip-text">Built-in default uses industry-standard Blondel formula: 2H + D = 63cm, where H is riser height and D is tread depth. This formula ensures stair comfort and safety. You can also customize height and depth based on specific scenarios. The actual step depth and height will be as close as possible to these values.</span>
+                            <span class="tooltip-text">Built-in default uses industry-standard Blondel formula: 2H + D = 24.8", where H is riser height and D is tread depth. This formula ensures stair comfort and safety. You can also customize height and depth based on specific scenarios. The actual step depth and height will be as close as possible to these values.</span>
                         </div>
                     </label>
                     <select id="blondelType" class="blondel-select">
-                        <option value="comfort">Comfort: Riser 17cm / Tread 29cm</option>
-                        <option value="standard" selected>Standard: Riser 17.5cm / Tread 28cm</option>
-                        <option value="compact">Compact: Riser 18cm / Tread 27cm</option>
+                        <option value="comfort">Comfort: Riser 6.7" / Tread 11.4"</option>
+                        <option value="standard" selected>Standard: Riser 6.9" / Tread 11.0"</option>
+                        <option value="compact">Compact: Riser 7.1" / Tread 10.6"</option>
                     </select>
                     <div class="input-row">
                         <div class="input-group">
                             <label for="riserHeight">Custom Height</label>
-                            <input type="number" id="riserHeight" value="17.5" min="15" max="20" step="0.1">
+                            <input type="number" id="riserHeight" value="6.9" min="5.9" max="7.9" step="0.1">
 
                         </div>
                         <div class="input-group">
                             <label for="treadDepth">Custom Depth</label>
-                            <input type="number" id="treadDepth" value="28" min="25" max="30" step="0.1">
+                            <input type="number" id="treadDepth" value="11.0" min="9.8" max="11.8" step="0.1">
                         </div>
 
                     </div>(No modification needed - use default parameters)
@@ -1261,17 +154,17 @@
                 <details class="advanced-params primary-input" >
                     <summary class="main-title">Advanced Parameters (Optional)</summary>
                     <div class="input-group">
-                        <label for="totalDepth">③ Total Depth Limit (cm)
+                        <label for="totalDepth">③ Total Depth Limit (inches)
                             <div class="tooltip">
                                 <span class="info-icon">?</span>
                                 <span class="tooltip-text">Some scenarios have limited space that restricts the maximum total depth of stairs. When exceeded, the system will automatically adjust step parameters</span>
                             </div>
                         </label>
-                        <input type="number" id="totalDepth" min="0" step="100" placeholder="Optional, no limit">
+                        <input type="number" id="totalDepth" min="0" step="50" placeholder="Optional, no limit">
                     </div>
 
                     <div class="input-group">
-                        <label for="treadThickness">④ Tread Thickness (cm)
+                        <label for="treadThickness">④ Tread Thickness (inches)
                             <div class="tooltip">
                                 <span class="info-icon">?</span>
                                 <span class="tooltip-text">The thickness of the tread, affecting the stair's structure and appearance, but this setting does not affect main outputs like step count, height, and depth</span>
@@ -1299,7 +192,7 @@
                     </div>
 
                     <div class="reference-image">
-                         <img src="flush.png" alt="Stair Reference Diagram" style="width: 100%; max-width: 400px; height: auto; border: 1px solid #ddd; border-radius: 4px; margin-top: 15px; cursor: pointer;" onclick="openImageModal('flush.png')">
+                         <img src="flush.png" alt="Stair Reference Diagram" title="Standard vs Flush Stair Structure Comparison - Click to Enlarge" style="width: 100%; max-width: 400px; height: auto; border: 1px solid #ddd; border-radius: 4px; margin-top: 15px; cursor: pointer;" onclick="openImageModal('flush.png')">
                      </div>
 
                 </details>  
@@ -1308,7 +201,7 @@
             <div class="visualization">
                 <div class="visualization-header">
                     <h3><button id="generateBtn" class="generate-btn">Real-time Stair Preview</button></h3>
-
+       
                 </div>
                 <canvas id="stairCanvas"></canvas>
                 <div class="results">
@@ -1322,16 +215,7 @@
                             </tr>
                         </thead>
                         <tbody id="results">
-                            <tr>
-                                <td>Total Height</td>
-                                <td id="totalHeightResult">-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>Total Depth</td>
-                                <td id="totalDepthResult">-</td>
-                                <td>-</td>
-                            </tr>
+                            <!-- Results will be dynamically populated by JavaScript -->
                         </tbody>
                     </table>
                     <div id="validationResults" class="result-validation">
@@ -1346,32 +230,32 @@
         <!-- How to Use Calculator Area -->
         <section id="how-to-use" class="how-to-use-section">
             <div class="container">
-                <h2 class="section-title">User Guide</h2>
+                <h2 class="section-title">Stair Calculator User Guide</h2>
                 <div class="usage-content">
                     <div class="detailed-guide">
                         <div class="guide-grid">
                             <div class="guide-item">
                                 <h4>1️⃣ Default Minimal Input</h4>
                                 <ul>
-                                    <li><strong>Enter total height only:</strong>Input the vertical distance between floors (e.g., 280cm)</li>
-                                    <li><strong>System auto-recommendation:</strong>Uses default optimal parameters that meet standards</li>
-                                    <li><strong>One-click results:</strong>Immediately get best output values and stair design</li>
+                                    <li><strong>Enter total height only:</strong>Our stair calculator needs just the vertical distance between floors (e.g., 110.2")</li>
+                                    <li><strong>System auto-recommendation:</strong>The stair calculator uses default optimal parameters that meet standards</li>
+                                    <li><strong>One-click results:</strong>Immediately get best output values and stair design from our stair calculator</li>
                                 </ul>
                             </div>
                             <div class="guide-item">
                                 <h4>2️⃣ Personalized Settings</h4>
                                 <ul>
-                                    <li><strong>Custom step parameters:</strong>Adjust the height and depth of each stair step</li>
-                                    <li><strong>Total depth limitation:</strong>Set maximum depth based on space constraints</li>
-                                    <li><strong>Structure type selection:</strong>Options for Standard or Flush structures</li>
+                                    <li><strong>Custom step parameters:</strong>Our stair calculator lets you adjust the height and depth of each stair step</li>
+                                    <li><strong>Total depth limitation:</strong>Set maximum depth based on space constraints using this stair calculator</li>
+                                    <li><strong>Structure type selection:</strong>The stair calculator supports both Standard and Flush structures</li>
                                 </ul>
                             </div>
                             <div class="guide-item">
                                 <h4>3️⃣ Real-time Preview</h4>
                                 <ul>
-                                    <li><strong>Real-time stair diagram:</strong>Immediately view stair renderings when adjusting parameters</li>
-                                    <li><strong>Output table:</strong>Real-time display of calculation results and parameter validation</li>
-                                    <li><strong>Parameter optimization:</strong>Adjust input parameters anytime based on preview effects</li>
+                                    <li><strong>Real-time stair diagram:</strong>Our stair calculator immediately shows stair renderings when adjusting parameters</li>
+                                    <li><strong>Output table:</strong>The stair calculator provides real-time display of calculation results and parameter validation</li>
+                                    <li><strong>Parameter optimization:</strong>Use this stair calculator to adjust input parameters anytime based on preview effects</li>
                                 </ul>
                             </div>
                         </div>
@@ -1385,7 +269,7 @@
         <!-- FAQ Area -->
         <section id="faq" class="faq-section">
             <div class="container">
-                <h2 class="section-title">Frequently Asked Questions</h2>
+                <h2 class="section-title">Stair Calculator FAQ</h2>
                 <div class="faq-content">
 
 
@@ -1393,23 +277,23 @@
                         <details open>
                             <summary class="faq-question">
                                 <span class="question-icon">📏</span>
-                                <span>How should stair riser height and tread depth be set?</span>
+                                <span>How should stair riser height and tread depth be set in this stair calculator?</span>
                                 <span class="toggle-icon">▼</span>
                             </summary>
                             <div class="faq-answer">
                                 <p><strong>Riser Height:</strong></p>
                                 <ul>
-                                    <li>Recommended range: 15-20cm</li>
-                                    <li>Optimal range: 16.5-18cm</li>
+                                    <li>Recommended range: 5.9"-7.9"</li>
+                                    <li>Optimal range: 6.5"-7.1"</li>
                                     <li>Too high increases fatigue, too low wastes space</li>
                                 </ul>
                                 <p><strong>Tread Depth:</strong></p>
                                 <ul>
-                                    <li>Recommended range: 25-30cm</li>
-                                    <li>Optimal range: 27-29cm</li>
+                                    <li>Recommended range: 9.8"-11.8"</li>
+                                    <li>Optimal range: 10.6"-11.4"</li>
                                     <li>Ensure the entire foot can land completely</li>
                                 </ul>
-                                 <p>This tool offers three common combinations: Comfort (Riser 17cm / Tread 29cm), Standard (Riser 17.5cm / Tread 28cm), Compact (Riser 18cm / Tread 27cm), of course you can also customize the settings.</p>
+                                 <p>This stair calculator tool offers three common combinations: Comfort (Riser 6.7" / Tread 11.4"), Standard (Riser 6.9" / Tread 11.0"), Compact (Riser 7.1" / Tread 10.6"), of course you can also customize the settings using this stair calculator.</p>
                             </div>
 
                         </details>
@@ -1425,12 +309,12 @@
                                 <span class="toggle-icon">▼</span>
                             </summary>
                             <div class="faq-answer">
-                                <p>The Blondel formula is the golden rule of stair design proposed by French architect François Blondel: <strong>2×Riser Height + Tread Depth = 63cm</strong>. This formula is based on ergonomic principles, ensuring comfort and safety for most people when walking. Following this standard can:</p>
+                                <p>The Blondel formula is the golden rule of stair design used by our stair calculator, proposed by French architect François Blondel: <strong>2×Riser Height + Tread Depth = 24.8"</strong>. This stair calculator applies this formula based on ergonomic principles, ensuring comfort and safety for most people when walking. Following this standard in our stair calculator can:</p>
                                 <ul>
-                                    <li>Reduce walking fatigue and increase comfort</li>
-                                    <li>Lower fall risk and enhance safety</li>
-                                    <li>Comply with international building code requirements</li>
-                                    <li>Accommodate use by people of different age groups</li>
+                                    <li>Reduce walking fatigue and increase comfort when using stairs designed by our stair calculator</li>
+                                    <li>Lower fall risk and enhance safety with stair calculator recommendations</li>
+                                    <li>Comply with international building code requirements followed by this stair calculator</li>
+                                    <li>Accommodate use by people of different age groups with stair calculator optimized designs</li>
                                 </ul>
                             </div>
                         </details>
@@ -1444,11 +328,11 @@
                                 <span class="toggle-icon">▼</span>
                             </summary>
                             <div class="faq-answer">
-                                <p><strong>Standard Structure:</strong>Traditional stair design where treads protrude from risers with distinct tread edges (nosing)</p>
-                                <p><strong>Flush Structure:</strong>Modern minimalist design where treads are flush with risers, no protruding edges, cleaner appearance.</p>
-                                <p>In dimension design, the main difference between Standard and Flush structures is whether the top tread and the top stair surface are on the same plane. In standard structures, the top tread is typically one step lower than the top surface. Therefore, in standard structures, the number of treads used is one less than the number of steps. Flush structures have the same number of treads as steps, but the total depth will be one tread depth greater.</p>
-                                <p>Selection advice: Standard structure is safer and more slip-resistant, Flush structure is more aesthetically modern. Choose based on usage scenario and personal preference.</p>
- <img src="flush.png" alt="Stair Reference Diagram" style="width: 100%; max-width: 400px; height: auto; border: 1px solid #ddd; border-radius: 4px; margin-top: 15px; cursor: pointer;" onclick="openImageModal('flush.png')">
+                                <p><strong>Standard Structure:</strong>Traditional stair design where treads protrude from risers with distinct tread edges (nosing) - supported by our stair calculator</p>
+                                <p><strong>Flush Structure:</strong>Modern minimalist design where treads are flush with risers, no protruding edges, cleaner appearance - also calculated by this stair calculator</p>
+                                <p>Our stair calculator handles both structure types. In dimension design, the main difference between Standard and Flush structures is whether the top tread and the top stair surface are on the same plane. In standard structures, the top tread is typically one step lower than the top surface. Therefore, in standard structures, the number of treads used is one less than the number of steps. Flush structures have the same number of treads as steps, but the total depth will be one tread depth greater.</p>
+                                <p>Selection advice: Use this stair calculator to compare both structures. Standard structure is safer and more slip-resistant, Flush structure is more aesthetically modern. Choose based on usage scenario and personal preference.</p>
+ <img src="flush.png" alt="Stair Reference Diagram" title="Stair Structure Design Comparison - Click to View Enlarged Image" style="width: 100%; max-width: 400px; height: auto; border: 1px solid #ddd; border-radius: 4px; margin-top: 15px; cursor: pointer;" onclick="openImageModal('flush.png')">
 
 
                             </div>
@@ -1552,17 +436,17 @@
                         <details>
                             <summary class="faq-question">
                                 <span class="question-icon">🔧</span>
-                                <span>How to handle conflicts between space limitations and stair design?</span>
+                                <span>How to handle conflicts between space limitations and stair design using this stair calculator?</span>
                                 <span class="toggle-icon">▼</span>
                             </summary>
                             <div class="faq-answer">
-                                <p>When space is limited, consider the following strategies:</p>
+                                <p>When space is limited, our stair calculator suggests the following strategies:</p>
                                 <ul>
-                                    <li><strong>Set total depth limitations:</strong>The system will optimize design within constraints</li>
-                                    <li><strong>Choose compact parameters:</strong>Use 18cm height + 27cm depth combination</li>
-                                    <li><strong>Consider spiral stairs:</strong>Suitable solution for extremely small spaces</li>
-                                    <li><strong>Segmented design:</strong>Use landings to divide long stairs into several sections</li>
-                                    <li><strong>Professional consultation:</strong>For complex situations, consult an architect</li>
+                                    <li><strong>Set total depth limitations:</strong>Our stair calculator system will optimize design within constraints</li>
+                                    <li><strong>Choose compact parameters:</strong>Use this stair calculator's 7.1" height + 10.6" depth combination</li>
+                                    <li><strong>Consider spiral stairs:</strong>The stair calculator can help with spiral stair calculations for extremely small spaces</li>
+                                    <li><strong>Segmented design:</strong>Use the stair calculator to design landings that divide long stairs into several sections</li>
+                                    <li><strong>Professional consultation:</strong>For complex situations, consult an architect with stair calculator printouts</li>
                                 </ul>
                             </div>
                         </details>
@@ -1580,14 +464,14 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Stair Calculator</h4>
-                    <p>Professional stair design tool,<br>Simpler, smarter, more intuitive.</p>
+                    <p>Professional stair calculator tool for accurate design,<br>Simpler, smarter, more intuitive stair calculations.</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4>Stair Calculator Links</h4>
                     <ul class="footer-links">
-                        <li><a href="#calculator">Calculator</a></li>
-                        <li><a href="#how-to-use">User Guide</a></li>
-
+                        <li><a href="#calculator">Stair Calculator Tool</a></li>
+                        <li><a href="#how-to-use">Stair Calculator Guide</a></li>
+                        <li><a href="#faq">Stair Calculator FAQ</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -1600,19 +484,19 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2005 - 2025 Stair Calculator. All rights reserved.</p>
-
+                <p>Professional stair calculator for architects, builders, and DIY enthusiasts. Trust our stair calculator for accurate stair design every time.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Image Modal -->
+    <!-- Image Modal 
     <div id="imageModal" class="image-modal">
         <span class="close-modal" onclick="closeImageModal()">&times;</span>
         <div class="modal-content">
-            <img id="modalImage" class="modal-image" src="" alt="">
+            <img id="modalImage" class="modal-image" src="" alt="Stair Calculator Diagram - Enlarged View" title="Enlarged Stair Calculator Design Diagram - Close with ESC or Click Outside">
         </div>
     </div>
-
-    <script src="script.js?v=20250905"></script>
+-->
+    <script src="script.js?v=20251024"></script>
 </body>
 </html>

@@ -15,20 +15,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultsDiv = document.getElementById('results');
     const validationDiv = document.getElementById('validationResults');
 
-    // Define parameter reference ranges
+    // Define parameter reference ranges (converted to inches)
     const paramRanges = {
-        riserHeight: { min: 15, max: 20, recommended: '16.5-18', unit: 'cm' },
-        treadDepth: { min: 25, max: 30, recommended: '27-29', unit: 'cm' },
-        blondelValue: { min: 590, max: 650, recommended: '610-640', unit: 'mm' },
+        riserHeight: { min: 5.9, max: 7.9, recommended: '6.5-7.1', unit: '"' },
+        treadDepth: { min: 9.8, max: 11.8, recommended: '10.6-11.4', unit: '"' },
+        blondelValue: { min: 23.2, max: 25.6, recommended: '24.0-25.2', unit: '"' },
         stairAngle: { min: 25, max: 35, recommended: '30-32', unit: '°' }
     };
 
     // Bind Blondel type selection event
     blondelTypeSelect.addEventListener('change', function() {
         const blondelTypes = {
-            standard: { riser: 17.5, tread: 28 },
-            comfort: { riser: 17, tread: 29 },
-            compact: { riser: 18, tread: 27 }
+            standard: { riser: 6.9, tread: 11.0 },
+            comfort: { riser: 6.7, tread: 11.4 },
+            compact: { riser: 7.1, tread: 10.6 }
         };
         const selectedType = blondelTypes[this.value];
         riserHeightInput.value = selectedType.riser;
@@ -50,12 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function calculateStairs() {
-        // Get input values and convert to millimeters
-        const totalHeight = (parseFloat(totalHeightInput.value) || 200) * 10;
-        const riserHeight = (parseFloat(riserHeightInput.value) || 17.5) * 10;
-        const treadDepth = (parseFloat(treadDepthInput.value) || 28) * 10;
-        const totalDepth = (parseFloat(totalDepthInput.value) || 0) * 10;
-        const treadThickness = (parseFloat(treadThicknessInput.value) || 0) * 10;
+        // Get input values (now in inches, convert to internal units)
+        const totalHeight = parseFloat(totalHeightInput.value) || 78.7;
+        const riserHeight = parseFloat(riserHeightInput.value) || 6.9;
+        const treadDepth = parseFloat(treadDepthInput.value) || 11.0;
+        const totalDepth = parseFloat(totalDepthInput.value) || 0;
+        const treadThickness = parseFloat(treadThicknessInput.value) || 0;
         const structureType = structureTypeSelect.value;
 
 
@@ -99,15 +99,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 actualTreadDepth = totalDepth / (numberOfSteps - 1);
                 actualTotalDepth = totalDepth;
             }
-            
+
             // Recalculate Blondel value, adjust step count if unreasonable
             let newBlondelValue = 2 * actualRiserHeight + actualTreadDepth;
-            if (newBlondelValue < 590 || newBlondelValue > 650) {
+            if (newBlondelValue < 23.2 || newBlondelValue > 25.6) {
                 // Adjust number of steps to satisfy Blondel formula
-                const targetBlondel = 630; // Target Blondel value
+                const targetBlondel = 24.8; // Target Blondel value (in inches)
                 numberOfSteps = Math.round(totalHeight / ((targetBlondel - actualTreadDepth) / 2));
                 actualRiserHeight = totalHeight / numberOfSteps;
-                
+
                 // Recalculate total depth
                 if (structureType === 'flush') {
                     actualTotalDepth = actualTreadDepth * numberOfSteps;
@@ -147,22 +147,22 @@ document.addEventListener('DOMContentLoaded', function() {
     function clearAndDrawStairs(params) {
         // Set canvas size and scaling ratio - maximize space utilization
     const maxWidth = 800;
-    const maxHeight = 580; // Reduce canvas height to minimize top space
-    const padding = 10; // Further reduce margins
-    
+    const maxHeight = 400; // 1:1 aspect ratio
+    const padding = 10; // Reduce margins
+
     // Set canvas size
     canvas.width = maxWidth;
     canvas.height = maxHeight;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    // Calculate scaling ratio - maximize canvas occupation
-    // To keep the left platform wall unchanged, we use a fixed maximum depth to calculate scaling ratio
-    // This maximum depth is the Flush structure depth (one more tread depth than Standard structure)
+
+    // Calculate scaling ratio - maximize canvas occupation (adjusting for inch units)
+    // Convert inches to pixels with appropriate scaling factor for display
+    const pixelsPerInch = 10; // Scale factor: 1 inch = 10 pixels for good visualization
     const maxPossibleDepth = params.treadDepth * Math.ceil(params.totalHeight / params.riserHeight);
     const availableWidth = maxWidth - padding * 2;
     const availableHeight = maxHeight - padding * 2;
-    const scaleX = availableWidth / (maxPossibleDepth + 90); // Include wall width
-    const scaleY = availableHeight / params.totalHeight;
+    const scaleX = availableWidth / ((maxPossibleDepth + 9) * pixelsPerInch); // Include wall width (9 inches)
+    const scaleY = availableHeight / (params.totalHeight * pixelsPerInch);
     const scale = Math.min(scaleX, scaleY) * 0.95; // Use 95% of space, leave small margins
 
         // Get structure type and tread thickness
@@ -170,27 +170,27 @@ document.addEventListener('DOMContentLoaded', function() {
         const treadThickness = parseFloat(treadThicknessInput.value) || 0;
 
         // Draw left wall - double width, height adjusted according to structure type
-        const wallWidth = 90; // Wall width doubled (from 30 to 90)
+        const wallWidth = 9 * pixelsPerInch * scale; // Wall width 9 inches
 
         // Platform height always equals total height input
-        let wallHeight = params.totalHeight * scale;
-        
+        let wallHeight = params.totalHeight * pixelsPerInch * scale;
+
         ctx.beginPath();
         ctx.fillStyle = '#f0f0f0';
-        ctx.fillRect(padding - wallWidth, canvas.height - padding - wallHeight, 
+        ctx.fillRect(padding - wallWidth, canvas.height - padding - wallHeight,
                     wallWidth, wallHeight);
         ctx.strokeStyle = '#666';
-        ctx.strokeRect(padding - wallWidth, canvas.height - padding - wallHeight, 
+        ctx.strokeRect(padding - wallWidth, canvas.height - padding - wallHeight,
                       wallWidth, wallHeight);
 
         // Draw ground
         ctx.beginPath();
         ctx.fillStyle = '#f0f0f0';
-        ctx.fillRect(padding - wallWidth, canvas.height - padding, 
-                    params.totalDepth * scale + wallWidth + 50, padding);
+        ctx.fillRect(padding - wallWidth, canvas.height - padding,
+                    params.totalDepth * pixelsPerInch * scale + wallWidth + 50, padding);
         ctx.strokeStyle = '#666';
-        ctx.strokeRect(padding - wallWidth, canvas.height - padding, 
-                      params.totalDepth * scale + wallWidth + 50, padding);
+        ctx.strokeRect(padding - wallWidth, canvas.height - padding,
+                      params.totalDepth * pixelsPerInch * scale + wallWidth + 50, padding);
 
         // Draw stairs (uniform color)
         ctx.beginPath();
@@ -202,20 +202,20 @@ document.addEventListener('DOMContentLoaded', function() {
         let stairStartY;
         if (params.structureType === 'flush') {
             // Flush structure: top tread flush with platform, entire structure moves up one level
-            stairStartY = canvas.height - padding - params.totalHeight * scale - params.riserHeight * scale;
+            stairStartY = canvas.height - padding - params.totalHeight * pixelsPerInch * scale - params.riserHeight * pixelsPerInch * scale;
         } else {
             // Standard structure: top layer uses platform wall
-            stairStartY = canvas.height - padding - params.totalHeight * scale;
+            stairStartY = canvas.height - padding - params.totalHeight * pixelsPerInch * scale;
         }
-        
+
         // Draw each step
         for (let i = 0; i < params.numberOfSteps; i++) {
-            const x1 = padding + i * params.treadDepth * scale;
-            const y1 = stairStartY + i * params.riserHeight * scale;
-            const x2 = padding + i * params.treadDepth * scale;
-            const y2 = stairStartY + (i + 1) * params.riserHeight * scale;
-            const x3 = padding + (i + 1) * params.treadDepth * scale;
-            const y3 = stairStartY + (i + 1) * params.riserHeight * scale;
+            const x1 = padding + i * params.treadDepth * pixelsPerInch * scale;
+            const y1 = stairStartY + i * params.riserHeight * pixelsPerInch * scale;
+            const x2 = padding + i * params.treadDepth * pixelsPerInch * scale;
+            const y2 = stairStartY + (i + 1) * params.riserHeight * pixelsPerInch * scale;
+            const x3 = padding + (i + 1) * params.treadDepth * pixelsPerInch * scale;
+            const y3 = stairStartY + (i + 1) * params.riserHeight * pixelsPerInch * scale;
 
             /**
              * 绘制垂直线（踢板）规则：
@@ -237,10 +237,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Flush结构下，添加最右下角的踢板
             if (params.structureType === 'flush' && i === params.numberOfSteps - 1) {
-                const lastX = padding + (i + 1) * params.treadDepth * scale;
-                const lastY1 = stairStartY + (i + 1) * params.riserHeight * scale; // 从当前踏板平面开始
+                const lastX = padding + (i + 1) * params.treadDepth * pixelsPerInch * scale;
+                const lastY1 = stairStartY + (i + 1) * params.riserHeight * pixelsPerInch * scale; // 从当前踏板平面开始
                 const lastY2 = canvas.height - padding; // 延伸到地面
-                
+
                 ctx.beginPath();
                 ctx.moveTo(lastX, lastY1);
                 ctx.lineTo(lastX, lastY2);
@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 特殊处理Flush结构的最高层踏板
                 if (i === 0 && params.structureType === 'flush') {
                     // Flush结构：最高层踏板应与楼台平齐
-                    const flushY = canvas.height - padding - params.totalHeight * scale;
+                    const flushY = canvas.height - padding - params.totalHeight * pixelsPerInch * scale;
                     ctx.moveTo(x2, flushY); // 从楼台平面高度开始
                     ctx.lineTo(x3, flushY); // 保持在楼台平面高度
                 } else {
@@ -286,20 +286,20 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Flush结构下，为最右下角添加完整的踏板
             if (params.structureType === 'flush' && i === params.numberOfSteps - 1) {
-                const lastX1 = padding + i * params.treadDepth * scale;
-                const lastX2 = padding + (i + 1) * params.treadDepth * scale;
-                const lastY = stairStartY + (i + 1) * params.riserHeight * scale;
-                
+                const lastX1 = padding + i * params.treadDepth * pixelsPerInch * scale;
+                const lastX2 = padding + (i + 1) * params.treadDepth * pixelsPerInch * scale;
+                const lastY = stairStartY + (i + 1) * params.riserHeight * pixelsPerInch * scale;
+
                 ctx.beginPath();
                 ctx.moveTo(lastX1, lastY);
                 ctx.lineTo(lastX2, lastY);
                 ctx.stroke();
-                
+
                 // 踏板厚度
                 if (treadThickness > 0) {
                     ctx.fillStyle = '#1976D2';
-                    ctx.fillRect(lastX1, lastY, (lastX2 - lastX1), treadThickness * scale);
-                    ctx.strokeRect(lastX1, lastY, (lastX2 - lastX1), treadThickness * scale);
+                    ctx.fillRect(lastX1, lastY, (lastX2 - lastX1), treadThickness * pixelsPerInch * scale);
+                    ctx.strokeRect(lastX1, lastY, (lastX2 - lastX1), treadThickness * pixelsPerInch * scale);
                     ctx.fillStyle = '#2196F3';
                 }
             }
@@ -307,11 +307,11 @@ document.addEventListener('DOMContentLoaded', function() {
             // 踏板厚度（标准结构下跳过最后一个踏板）
             if (treadThickness > 0 && !(params.structureType === 'standard' && i === params.numberOfSteps - 1)) {
                 ctx.fillStyle = '#1976D2';
-                ctx.fillRect(x2, y2, (x3 - x2), treadThickness * scale);
-                ctx.strokeRect(x2, y2, (x3 - x2), treadThickness * scale);
+                ctx.fillRect(x2, y2, (x3 - x2), treadThickness * pixelsPerInch * scale);
+                ctx.strokeRect(x2, y2, (x3 - x2), treadThickness * pixelsPerInch * scale);
                 ctx.fillStyle = '#2196F3';
             }
-            
+
             // 特殊处理与楼台墙面的连接踏板（顶部）
             if (i === 0) {
                 // 绘制与楼台墙面的连接踏板
@@ -319,12 +319,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 ctx.moveTo(padding, y2);
                 ctx.lineTo(x2, y2);
                 ctx.stroke();
-                
+
                 // 踏板厚度
                 if (treadThickness > 0) {
                     ctx.fillStyle = '#1976D2';
-                    ctx.fillRect(padding, y2, (x2 - padding), treadThickness * scale);
-                    ctx.strokeRect(padding, y2, (x2 - padding), treadThickness * scale);
+                    ctx.fillRect(padding, y2, (x2 - padding), treadThickness * pixelsPerInch * scale);
+                    ctx.strokeRect(padding, y2, (x2 - padding), treadThickness * pixelsPerInch * scale);
                     ctx.fillStyle = '#2196F3';
                 }
             }
@@ -350,8 +350,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     ctx.fillStyle = '#2196F3';
                     ctx.font = 'bold 16px Arial';
                     ctx.fillText(`Steps: ${params.numberOfSteps}`, boxX + 10, boxY + 20);
-                    ctx.fillText(`Height: ${(params.riserHeight/10).toFixed(1)}cm`, boxX + 10, boxY + 35);
-                    ctx.fillText(`Depth: ${(params.treadDepth/10).toFixed(1)}cm`, boxX + 10, boxY + 50);
+                    ctx.fillText(`Height: ${params.riserHeight.toFixed(1)}"`, boxX + 10, boxY + 35);
+                    ctx.fillText(`Depth: ${params.treadDepth.toFixed(1)}"`, boxX + 10, boxY + 50);
                     
                     // Add arrow indicators (gray, consistent with total height arrow style)
                     ctx.strokeStyle = '#666';
@@ -409,10 +409,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
         // Add dimension annotations
-        addDimensions(params, scale, padding);
+        addDimensions(params, scale, padding, pixelsPerInch);
     }
 
-    function addDimensions(params, scale, padding) {
+    function addDimensions(params, scale, padding, pixelsPerInch) {
         ctx.font = 'bold 16px Arial';
         ctx.fillStyle = '#2196F3';
         ctx.textAlign = 'center';
@@ -423,7 +423,7 @@ document.addEventListener('DOMContentLoaded', function() {
          * - Whether Standard or Flush structure, platform height equals user-input total height
          * - Arrow points from ground to platform top surface
          */
-        let heightArrowEndY = canvas.height - padding - params.totalHeight * scale;
+        let heightArrowEndY = canvas.height - padding - params.totalHeight * pixelsPerInch * scale;
         
         ctx.beginPath();
         ctx.moveTo(padding + 15, canvas.height - padding);
@@ -436,8 +436,8 @@ document.addEventListener('DOMContentLoaded', function() {
         drawArrow(ctx, padding + 15, canvas.height - padding, padding + 15, heightArrowEndY);
         
         // Total height text (horizontal display, moved to right of arrow) - always display user-input total height value
-        let displayHeight = params.totalHeight / 10;
-        ctx.fillText(`Total Height: ${displayHeight.toFixed(1)}cm`, padding + 80, (canvas.height - padding + heightArrowEndY) / 2);
+        let displayHeight = params.totalHeight;
+        ctx.fillText(`Total Height: ${displayHeight.toFixed(1)}"`, padding + 80, (canvas.height - padding + heightArrowEndY) / 2);
 
         // Total depth annotation - adjust position to make it visible
         const totalDepth = params.totalDepth; // Use actual total depth passed in
@@ -445,16 +445,16 @@ document.addEventListener('DOMContentLoaded', function() {
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(padding, canvas.height - padding - 10);
-        ctx.lineTo(padding + totalDepth * scale, canvas.height - padding - 10);
+        ctx.lineTo(padding + totalDepth * pixelsPerInch * scale, canvas.height - padding - 10);
         ctx.stroke();
-        
+
         // 绘制箭头
-        drawArrow(ctx, padding, canvas.height - padding - 10, padding + totalDepth * scale, canvas.height - padding - 10);
-        
+        drawArrow(ctx, padding, canvas.height - padding - 10, padding + totalDepth * pixelsPerInch * scale, canvas.height - padding - 10);
+
         // Total depth text
         ctx.fillStyle = '#2196F3';
         ctx.font = 'bold 16px Arial';
-        ctx.fillText(`Total Depth: ${(totalDepth/10).toFixed(1)}cm`, padding + totalDepth * scale / 2, canvas.height - padding - 25);
+        ctx.fillText(`Total Depth: ${totalDepth.toFixed(1)}"`, padding + totalDepth * pixelsPerInch * scale / 2, canvas.height - padding - 25);
     }
 
     function drawArrow(ctx, fromX, fromY, toX, toY) {
@@ -479,14 +479,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Calculate actual tread count
         const actualTreadCount = structureType === 'flush' ? results.numberOfSteps : results.numberOfSteps - 1;
-        
+
         const resultItems = [
             { label: 'Step Count', value: `${results.numberOfSteps}`, range: `Actual tread material count: ${actualTreadCount} pieces (${structureType} structure)` },
-            { label: 'Riser Height', value: `${(results.actualRiserHeight/10).toFixed(1)} cm`, range: `Not higher than 18cm, recommended ${paramRanges.riserHeight.recommended}cm` },
-            { label: 'Tread Depth', value: `${(results.treadDepth/10).toFixed(1)} cm`, range: `Not less than 26cm, recommended ${paramRanges.treadDepth.recommended}cm` },
-            { label: 'Total Height', value: `${(parseFloat(totalHeightInput.value) || 200).toFixed(1)} cm`, range: 'User input total height' },
-            { label: 'Total Depth', value: `${(results.actualTotalDepth/10).toFixed(1)} cm${totalDepthAdjusted ? ' (adjusted for limitation)' : ''}`, range: 'Calculated by step count, also limited by input depth constraint' },
-            { label: 'Stringer Length', value: `${(results.stringerLength/10).toFixed(1)} cm`, range: 'Formula: √(total height² + total depth²)' },
+            { label: 'Riser Height', value: `${results.actualRiserHeight.toFixed(1)}"`, range: `Not higher than 7.9", recommended ${paramRanges.riserHeight.recommended}"` },
+            { label: 'Tread Depth', value: `${results.treadDepth.toFixed(1)}"`, range: `Not less than 10.2", recommended ${paramRanges.treadDepth.recommended}"` },
+            { label: 'Total Height', value: `${(parseFloat(totalHeightInput.value) || 78.7).toFixed(1)}"`, range: 'User input total height' },
+            { label: 'Total Depth', value: `${results.actualTotalDepth.toFixed(1)}"${totalDepthAdjusted ? ' (adjusted for limitation)' : ''}`, range: 'Calculated by step count, also limited by input depth constraint' },
+            { label: 'Stringer Length', value: `${results.stringerLength.toFixed(1)}"`, range: 'Formula: √(total height² + total depth²)' },
             { label: 'Stair Angle', value: `${stairAngle.toFixed(1)}°`, range: `Normally not higher than 45°, recommended ${paramRanges.stairAngle.recommended}°` }
         ];
 
@@ -540,6 +540,48 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         return value < range.min ? 'Below recommended range' : 'Above recommended range';
     }
+
+    // Language dropdown functionality
+    const dropdownBtn = document.querySelector('.dropdown-btn');
+    const dropdownContent = document.querySelector('.dropdown-content');
+    const currentLangSpan = document.querySelector('.current-lang');
+    const langOptions = document.querySelectorAll('.lang-option');
+    const languageDropdown = document.querySelector('.language-dropdown');
+
+    // Toggle dropdown
+    dropdownBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        languageDropdown.classList.toggle('active');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function() {
+        languageDropdown.classList.remove('active');
+    });
+
+    // Handle language selection
+    langOptions.forEach(option => {
+        option.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Remove active class from all options
+            langOptions.forEach(opt => opt.classList.remove('active'));
+
+            // Add active class to selected option
+            this.classList.add('active');
+
+            // Update current language display
+            currentLangSpan.textContent = this.textContent;
+
+            // Close dropdown
+            languageDropdown.classList.remove('active');
+
+            // Here you can add actual language switching logic
+            const selectedLang = this.getAttribute('data-lang');
+            console.log('Language switched to:', selectedLang);
+        });
+    });
 
     // Initial calculation
     calculateStairs();

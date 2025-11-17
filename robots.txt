@@ -39,4 +39,4 @@ User-agent: Omgilibot
 Disallow: /
 
 # Sitemap
-Sitemap: https://www.stair-calculator.com/sitemap.xml
+Sitemap: https://www.aistaircalculator.com/sitemap.xml

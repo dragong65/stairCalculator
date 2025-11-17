@@ -1,7 +1,42 @@
+# Stair Calculator - Professional Stair Design Tool
+# Welcome search engine crawlers
+
 User-agent: *
 Allow: /
 
-Sitemap: https://stair-calculator.com/sitemap.xml
+# Block AI training crawlers
+User-agent: Amazonbot
+Disallow: /
 
-# 楼梯计算器 - 专业楼梯设计工具
-# 欢迎搜索引擎爬虫访问我们的网站
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+# Sitemap
+Sitemap: https://www.stair-calculator.com/sitemap.xml
